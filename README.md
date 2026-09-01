@@ -10,6 +10,10 @@
 
 Rust bindings for the Unitree SDK2, providing DDS message types, topic publish/subscribe and RPC.
 
+This crate wraps the official [unitree_sdk2](https://github.com/unitreerobotics/unitree_sdk2)
+C++ SDK via a `cxx` bridge. It uses the same DDS message types and CDR wire format,
+so it interoperates with other unitree_sdk2-based programs on the robot.
+
 - **Message types**: generated from `msgs/*.msg`, one-to-one with the C++ SDK DDS types
 - **Subscribe / Publish**: `subscribe::<T>` / `Publisher::<T>`
 - **RPC**: `rpc::RpcClient` / `rpc::RpcServer`

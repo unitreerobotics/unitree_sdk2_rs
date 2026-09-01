@@ -10,6 +10,9 @@
 
 Unitree SDK2 的 Rust 绑定，提供 DDS 消息类型、话题订阅/发布与 RPC 接口。
 
+本项目通过 `cxx` 桥接封装官方 [unitree_sdk2](https://github.com/unitreerobotics/unitree_sdk2)
+C++ SDK，复用相同的 DDS 消息类型与 CDR 线格式，可与机器人上其他基于 unitree_sdk2 的程序互通。
+
 - **消息类型**：由 `msgs/*.msg` 自动生成，与 C++ SDK 的 DDS 类型一一对应
 - **订阅/发布**：`subscribe::<T>` / `Publisher::<T>` 泛型接口
 - **RPC**：`rpc::RpcClient` / `rpc::RpcServer`
