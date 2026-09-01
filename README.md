@@ -5,7 +5,7 @@
 [![Crates.io](https://img.shields.io/crates/v/unitree_sdk2_rs)](https://crates.io/crates/unitree_sdk2_rs)
 [![docs.rs](https://img.shields.io/docsrs/unitree_sdk2_rs)](https://docs.rs/unitree_sdk2_rs)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![CI](https://github.com/Roy-dk/unitree_sdk2_rs/actions/workflows/ci.yml/badge.svg)](https://github.com/Roy-dk/unitree_sdk2_rs/actions/workflows/ci.yml)
+[![CI](https://github.com/unitreerobotics/unitree_sdk2_rs/actions/workflows/ci.yml/badge.svg)](https://github.com/unitreerobotics/unitree_sdk2_rs/actions/workflows/ci.yml)
 [![MSRV: 1.88](https://img.shields.io/badge/rustc-1.88+-lightgray.svg)](Cargo.toml)
 
 Rust bindings for the Unitree SDK2, providing DDS message types, topic publish/subscribe and RPC.

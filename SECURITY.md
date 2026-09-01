@@ -6,7 +6,7 @@ Please **do not** open a public issue for security vulnerabilities.
 
 Instead, report them privately via GitHub's security advisory feature at:
 
-https://github.com/Roy-dk/unitree_sdk2_rs/security/advisories/new
+https://github.com/unitreerobotics/unitree_sdk2_rs/security/advisories/new
 
 or by contacting the maintainers directly through the repository.
 
