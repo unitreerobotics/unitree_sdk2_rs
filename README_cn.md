@@ -14,6 +14,17 @@ Unitree SDK2 的 Rust 绑定，提供 DDS 消息类型、话题订阅/发布与 
 - **订阅/发布**：`subscribe::<T>` / `Publisher::<T>` 泛型接口
 - **RPC**：`rpc::RpcClient` / `rpc::RpcServer`
 
+## 安装
+
+在 `Cargo.toml` 中添加依赖：
+
+```toml
+[dependencies]
+unitree_sdk2_rs = { version = "0.2.0" }
+```
+
+该 crate 无 feature 开关，默认即启用全部功能。
+
 ## 快速上手
 
 ```rust,no_run

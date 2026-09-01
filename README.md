@@ -14,6 +14,17 @@ Rust bindings for the Unitree SDK2, providing DDS message types, topic publish/s
 - **Subscribe / Publish**: `subscribe::<T>` / `Publisher::<T>`
 - **RPC**: `rpc::RpcClient` / `rpc::RpcServer`
 
+## Installation
+
+Add the crate to your `Cargo.toml`:
+
+```toml
+[dependencies]
+unitree_sdk2_rs = { version = "0.2.0" }
+```
+
+The crate ships no feature flags — all functionality is enabled by default.
+
 ## Quick Start
 
 ```rust,no_run
