@@ -47,6 +47,19 @@ requires the C++ bridge, so run the full checks in Docker/Linux:
 - `tests/bms_test.rs` — BMS pub/sub loopback on the robot (or DDS network)
 - `tests/rpc_test_server.rs` / `tests/rpc_test_client.rs` — RPC round trip
 
+## Changelog
+
+`CHANGELOG.md` is generated with [git-cliff](https://git-cliff.org) from git tags
+and conventional commits (`cliff.toml` at the repo root):
+
+```bash
+git cliff -o CHANGELOG.md   # regenerate after tagging a release
+```
+
+Keep commit messages in the [Conventional Commits](https://www.conventionalcommits.org)
+format (`feat(scope): ...`, `fix(scope): ...`, `docs(...)`, `build(...)`, `ci(...)`,
+`chore(...)`, ...) so the changelog groups them correctly.
+
 ## Submitting changes
 
 1. Fork the repository and create a feature branch.
