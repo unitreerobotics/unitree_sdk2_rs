@@ -1,0 +1,50 @@
+[package]
+name = "unitree_sdk2_rs"
+version = "0.1.5"
+edition = "2021"
+authors = ["unitree"]
+description = "Rust bindings for the Unitree SDK2: msg-driven DDS type generation, CDR serialization, publish/subscribe and RPC."
+license = "MIT"
+repository = "https://github.com/Roy-dk/unitree_sdk2_rs"
+homepage = "https://github.com/Roy-dk/unitree_sdk2_rs"
+documentation = "https://docs.rs/unitree_sdk2_rs"
+rust-version = "1.88"
+keywords = ["unitree", "robot", "dds", "cyclonedds", "sdk"]
+categories = ["embedded", "science::robotics"]
+readme = "README.md"
+# tests/ 下只有 [[bin]] 测试程序，无需自动集成测试发现
+autotests = false
+# 发布时排除：克隆的 SDK、本地构建产物（生成文件由 build.rs 现场生成）
+exclude = ["tmp_sdk2", "install", "target"]
+
+[package.metadata.docs.rs]
+all-features = true
+
+[lib]
+name = "unitree_sdk2_rs"
+path = "src/lib.rs"
+
+[[bin]]
+name = "bms_test"
+path = "tests/bms_test.rs"
+
+[[bin]]
+name = "rpc_test_server"
+path = "tests/rpc_test_server.rs"
+
+[[bin]]
+name = "rpc_test_client"
+path = "tests/rpc_test_client.rs"
+
+[dependencies]
+cxx = "1.0.199"
+serde = { version = "1.0.210", features = ["derive"] }
+serde_json = "1.0.128"
+anyhow = "1.0.89"
+tokio = { version = "1", features = ["full"] }
+log = "0.4"
+cdr = "0.2"
+serde-big-array = "0.5"
+
+[build-dependencies]
+cxx-build = "1.0.199"
