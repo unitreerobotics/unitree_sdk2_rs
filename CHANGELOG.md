@@ -7,15 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.0] - 2026-09-01
 
-### 🚀 Features
+### Features
 
 - *(sdk2)* Rust bindings for the Unitree SDK2
 
-### 📚 Documentation
+### Documentation
 
 - *(readme)* Add bilingual README and usage guides
 
-### ⚙️ Miscellaneous Tasks
+### Miscellaneous Tasks
 
 - *(scripts)* Add Docker and Linux build/test scripts
 - *(github-actions)* Add GitHub Actions workflow
