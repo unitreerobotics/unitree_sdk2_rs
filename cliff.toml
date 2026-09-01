@@ -41,7 +41,7 @@ render_always = true
 # An array of regex based postprocessors to modify the changelog.
 postprocessors = [
     # Replace the placeholder <REPO> with a URL.
-    { pattern = '<REPO>', replace = "https://github.com/Roy-dk/unitree_sdk2_rs" },
+    { pattern = '<REPO>', replace = "https://github.com/unitreerobotics/unitree_sdk2_rs" },
 ]
 # render body even when there are no releases to process
 # render_always = true
