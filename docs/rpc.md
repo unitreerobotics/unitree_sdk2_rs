@@ -47,3 +47,29 @@ async fn main() {
     println!("api=1002 code={} data={}", resp.code, resp.data);
 }
 ```
+
+## Robot Service APIs
+
+The robot's RPC services (`sport` / `audio` / `config` / `video` / `arm` / `loco` / ...)
+are exposed as `robot_api::<model>::<service>` modules with `API_ID_*` constants and
+serde request payloads, generated from the unitree_sdk2 headers:
+
+```rust,no_run
+use unitree_sdk2_rs::robot_api::go2::sport::SportClient;
+
+#[tokio::main]
+async fn main() {
+    unitree_sdk2_rs::init_dds(0, "eth0", "");
+
+    // mirrors the C++ client: registers all sport api ids on connect
+    let client = SportClient::new().expect("failed to create SportClient");
+
+    // {"vx":0.3,"vy":0.0,"vyaw":0.0}
+    let resp = client.move_to(0.3, 0.0, 0.0).await.expect("RPC call failed");
+    println!("code={} data={}", resp.code, resp.data);
+}
+```
+
+All 8 robot models (`go2` / `g1` / `h1` / `h2` / `b2` / `a2` / `as2` / `r1`) are
+covered; each model has one file under `gen/robot_api/` (`robot_api::<model>::<service>`),
+hand-verified against the unitree_sdk2 headers.

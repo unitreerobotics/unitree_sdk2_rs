@@ -23,6 +23,35 @@ mod gen_types;
 use gen_ffi::ffi;
 pub use gen_ffi::ByteHandler;
 pub use gen_types::*;
+
+// Robot RPC clients, one file per model (hand-verified against the
+// unitree_sdk2 headers under tmp_sdk2/include/unitree/robot/<model>)
+pub mod robot_api {
+    pub mod a2 {
+        include!(concat!(env!("CARGO_MANIFEST_DIR"), "/gen/robot_api/a2.rs"));
+    }
+    pub mod as2 {
+        include!(concat!(env!("CARGO_MANIFEST_DIR"), "/gen/robot_api/as2.rs"));
+    }
+    pub mod b2 {
+        include!(concat!(env!("CARGO_MANIFEST_DIR"), "/gen/robot_api/b2.rs"));
+    }
+    pub mod g1 {
+        include!(concat!(env!("CARGO_MANIFEST_DIR"), "/gen/robot_api/g1.rs"));
+    }
+    pub mod go2 {
+        include!(concat!(env!("CARGO_MANIFEST_DIR"), "/gen/robot_api/go2.rs"));
+    }
+    pub mod h1 {
+        include!(concat!(env!("CARGO_MANIFEST_DIR"), "/gen/robot_api/h1.rs"));
+    }
+    pub mod h2 {
+        include!(concat!(env!("CARGO_MANIFEST_DIR"), "/gen/robot_api/h2.rs"));
+    }
+    pub mod r1 {
+        include!(concat!(env!("CARGO_MANIFEST_DIR"), "/gen/robot_api/r1.rs"));
+    }
+}
 pub mod rpc;
 
 use cxx::memory::UniquePtrTarget;
