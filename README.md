@@ -24,7 +24,7 @@ Add the crate to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-unitree_sdk2_rs = { version = "0.2.1" }
+unitree_sdk2_rs = { version = "0.3.0" }
 ```
 
 The crate ships no feature flags — all functionality is enabled by default.
