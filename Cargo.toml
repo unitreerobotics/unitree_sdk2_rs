@@ -36,6 +36,10 @@ path = "tests/rpc_test_server.rs"
 name = "rpc_test_client"
 path = "tests/rpc_test_client.rs"
 
+[[bin]]
+name = "rpc_req_res_test"
+path = "tests/rpc_req_res_test.rs"
+
 [dependencies]
 cxx = "1.0.199"
 serde = { version = "1.0.210", features = ["derive"] }
