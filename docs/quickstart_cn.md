@@ -59,6 +59,7 @@ pub_.publish(&bms);
 |---|---|
 | `msgs/unitree_hg/msg/BmsState.msg` | `unitree_hg::msg::dds_::BmsState` |
 | `msgs/unitree_go/msg/SportModeState.msg` | `unitree_go::msg::dds_::SportModeState` |
+| `msgs/unitree_api/msg/Request.msg` | `unitree_api::msg::dds_::Request` |
 | `msgs/std_msgs/msg/String.msg` | `std_msgs::msg::dds_::String` |
 
 话题名（如 `rt/lf/bmsstate`）及各话题的消息格式见 unitree_sdk2 官方文档。

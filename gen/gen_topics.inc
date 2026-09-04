@@ -10,6 +10,86 @@ void publish_std_string_bytes(const stdStringPublisher& pub, rust::Vec<uint8_t> 
   pub.write(msg);
 }
 
+template class Subscriber<unitree_api::msg::dds_::Request_>;
+template class Publisher<unitree_api::msg::dds_::Request_>;
+std::unique_ptr<apiRequestPublisher> new_api_request_publisher(rust::Str t) {
+  return std::make_unique<apiRequestPublisher>(std::string(t));
+}
+void publish_api_request_bytes(const apiRequestPublisher& pub, rust::Vec<uint8_t> bytes) {
+  auto msg = bytes_to_dds<unitree_api::msg::dds_::Request_>(to_std_vec(bytes));
+  pub.write(msg);
+}
+
+template class Subscriber<unitree_api::msg::dds_::RequestHeader_>;
+template class Publisher<unitree_api::msg::dds_::RequestHeader_>;
+std::unique_ptr<apiRequestHeaderPublisher> new_api_request_header_publisher(rust::Str t) {
+  return std::make_unique<apiRequestHeaderPublisher>(std::string(t));
+}
+void publish_api_request_header_bytes(const apiRequestHeaderPublisher& pub, rust::Vec<uint8_t> bytes) {
+  auto msg = bytes_to_dds<unitree_api::msg::dds_::RequestHeader_>(to_std_vec(bytes));
+  pub.write(msg);
+}
+
+template class Subscriber<unitree_api::msg::dds_::RequestIdentity_>;
+template class Publisher<unitree_api::msg::dds_::RequestIdentity_>;
+std::unique_ptr<apiRequestIdentityPublisher> new_api_request_identity_publisher(rust::Str t) {
+  return std::make_unique<apiRequestIdentityPublisher>(std::string(t));
+}
+void publish_api_request_identity_bytes(const apiRequestIdentityPublisher& pub, rust::Vec<uint8_t> bytes) {
+  auto msg = bytes_to_dds<unitree_api::msg::dds_::RequestIdentity_>(to_std_vec(bytes));
+  pub.write(msg);
+}
+
+template class Subscriber<unitree_api::msg::dds_::RequestLease_>;
+template class Publisher<unitree_api::msg::dds_::RequestLease_>;
+std::unique_ptr<apiRequestLeasePublisher> new_api_request_lease_publisher(rust::Str t) {
+  return std::make_unique<apiRequestLeasePublisher>(std::string(t));
+}
+void publish_api_request_lease_bytes(const apiRequestLeasePublisher& pub, rust::Vec<uint8_t> bytes) {
+  auto msg = bytes_to_dds<unitree_api::msg::dds_::RequestLease_>(to_std_vec(bytes));
+  pub.write(msg);
+}
+
+template class Subscriber<unitree_api::msg::dds_::RequestPolicy_>;
+template class Publisher<unitree_api::msg::dds_::RequestPolicy_>;
+std::unique_ptr<apiRequestPolicyPublisher> new_api_request_policy_publisher(rust::Str t) {
+  return std::make_unique<apiRequestPolicyPublisher>(std::string(t));
+}
+void publish_api_request_policy_bytes(const apiRequestPolicyPublisher& pub, rust::Vec<uint8_t> bytes) {
+  auto msg = bytes_to_dds<unitree_api::msg::dds_::RequestPolicy_>(to_std_vec(bytes));
+  pub.write(msg);
+}
+
+template class Subscriber<unitree_api::msg::dds_::Response_>;
+template class Publisher<unitree_api::msg::dds_::Response_>;
+std::unique_ptr<apiResponsePublisher> new_api_response_publisher(rust::Str t) {
+  return std::make_unique<apiResponsePublisher>(std::string(t));
+}
+void publish_api_response_bytes(const apiResponsePublisher& pub, rust::Vec<uint8_t> bytes) {
+  auto msg = bytes_to_dds<unitree_api::msg::dds_::Response_>(to_std_vec(bytes));
+  pub.write(msg);
+}
+
+template class Subscriber<unitree_api::msg::dds_::ResponseHeader_>;
+template class Publisher<unitree_api::msg::dds_::ResponseHeader_>;
+std::unique_ptr<apiResponseHeaderPublisher> new_api_response_header_publisher(rust::Str t) {
+  return std::make_unique<apiResponseHeaderPublisher>(std::string(t));
+}
+void publish_api_response_header_bytes(const apiResponseHeaderPublisher& pub, rust::Vec<uint8_t> bytes) {
+  auto msg = bytes_to_dds<unitree_api::msg::dds_::ResponseHeader_>(to_std_vec(bytes));
+  pub.write(msg);
+}
+
+template class Subscriber<unitree_api::msg::dds_::ResponseStatus_>;
+template class Publisher<unitree_api::msg::dds_::ResponseStatus_>;
+std::unique_ptr<apiResponseStatusPublisher> new_api_response_status_publisher(rust::Str t) {
+  return std::make_unique<apiResponseStatusPublisher>(std::string(t));
+}
+void publish_api_response_status_bytes(const apiResponseStatusPublisher& pub, rust::Vec<uint8_t> bytes) {
+  auto msg = bytes_to_dds<unitree_api::msg::dds_::ResponseStatus_>(to_std_vec(bytes));
+  pub.write(msg);
+}
+
 template class Subscriber<unitree_go::msg::dds_::AudioData_>;
 template class Publisher<unitree_go::msg::dds_::AudioData_>;
 std::unique_ptr<goAudioDataPublisher> new_go_audio_data_publisher(rust::Str t) {
@@ -365,6 +445,22 @@ std::unique_ptr<SubscriberBase> make_subscriber(
     std::function<void(rust::Vec<uint8_t>)> cb) {
   if (type_name == "std_msgs::msg::dds_::String_")
    return std::make_unique<Subscriber<std_msgs::msg::dds_::String_>>(topic, cb);
+  if (type_name == "unitree_api::msg::dds_::Request_")
+   return std::make_unique<Subscriber<unitree_api::msg::dds_::Request_>>(topic, cb);
+  if (type_name == "unitree_api::msg::dds_::RequestHeader_")
+   return std::make_unique<Subscriber<unitree_api::msg::dds_::RequestHeader_>>(topic, cb);
+  if (type_name == "unitree_api::msg::dds_::RequestIdentity_")
+   return std::make_unique<Subscriber<unitree_api::msg::dds_::RequestIdentity_>>(topic, cb);
+  if (type_name == "unitree_api::msg::dds_::RequestLease_")
+   return std::make_unique<Subscriber<unitree_api::msg::dds_::RequestLease_>>(topic, cb);
+  if (type_name == "unitree_api::msg::dds_::RequestPolicy_")
+   return std::make_unique<Subscriber<unitree_api::msg::dds_::RequestPolicy_>>(topic, cb);
+  if (type_name == "unitree_api::msg::dds_::Response_")
+   return std::make_unique<Subscriber<unitree_api::msg::dds_::Response_>>(topic, cb);
+  if (type_name == "unitree_api::msg::dds_::ResponseHeader_")
+   return std::make_unique<Subscriber<unitree_api::msg::dds_::ResponseHeader_>>(topic, cb);
+  if (type_name == "unitree_api::msg::dds_::ResponseStatus_")
+   return std::make_unique<Subscriber<unitree_api::msg::dds_::ResponseStatus_>>(topic, cb);
   if (type_name == "unitree_go::msg::dds_::AudioData_")
    return std::make_unique<Subscriber<unitree_go::msg::dds_::AudioData_>>(topic, cb);
   if (type_name == "unitree_go::msg::dds_::BmsCmd_")

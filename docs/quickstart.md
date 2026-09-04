@@ -60,6 +60,7 @@ files under `msgs/`; fields match the `.msg` definitions:
 |---|---|
 | `msgs/unitree_hg/msg/BmsState.msg` | `unitree_hg::msg::dds_::BmsState` |
 | `msgs/unitree_go/msg/SportModeState.msg` | `unitree_go::msg::dds_::SportModeState` |
+| `msgs/unitree_api/msg/Request.msg` | `unitree_api::msg::dds_::Request` |
 | `msgs/std_msgs/msg/String.msg` | `std_msgs::msg::dds_::String` |
 
 Topic names (e.g. `rt/lf/bmsstate`) and their message formats follow the unitree_sdk2 official docs.

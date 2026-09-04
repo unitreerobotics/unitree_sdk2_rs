@@ -15,6 +15,93 @@ pub mod std_msgs {
     }
   }
 }
+pub mod unitree_api {
+  pub mod msg {
+    pub mod dds_ {
+      #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+      pub struct Request {
+          pub header: RequestHeader,
+          pub parameter: std::string::String,
+          pub binary: Vec<u8>,
+      }
+
+      impl crate::DdsType for Request {
+          fn dds_name() -> &'static str { "unitree_api::msg::dds_::Request_" }
+      }
+
+      #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+      pub struct RequestHeader {
+          pub identity: RequestIdentity,
+          pub lease: RequestLease,
+          pub policy: RequestPolicy,
+      }
+
+      impl crate::DdsType for RequestHeader {
+          fn dds_name() -> &'static str { "unitree_api::msg::dds_::RequestHeader_" }
+      }
+
+      #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+      pub struct RequestIdentity {
+          pub id: i64,
+          pub api_id: i64,
+      }
+
+      impl crate::DdsType for RequestIdentity {
+          fn dds_name() -> &'static str { "unitree_api::msg::dds_::RequestIdentity_" }
+      }
+
+      #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+      pub struct RequestLease {
+          pub id: i64,
+      }
+
+      impl crate::DdsType for RequestLease {
+          fn dds_name() -> &'static str { "unitree_api::msg::dds_::RequestLease_" }
+      }
+
+      #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+      pub struct RequestPolicy {
+          pub priority: i32,
+          pub noreply: bool,
+      }
+
+      impl crate::DdsType for RequestPolicy {
+          fn dds_name() -> &'static str { "unitree_api::msg::dds_::RequestPolicy_" }
+      }
+
+      #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+      pub struct Response {
+          pub header: ResponseHeader,
+          pub data: std::string::String,
+          pub binary: Vec<i8>,
+      }
+
+      impl crate::DdsType for Response {
+          fn dds_name() -> &'static str { "unitree_api::msg::dds_::Response_" }
+      }
+
+      #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+      pub struct ResponseHeader {
+          pub identity: RequestIdentity,
+          pub status: ResponseStatus,
+      }
+
+      impl crate::DdsType for ResponseHeader {
+          fn dds_name() -> &'static str { "unitree_api::msg::dds_::ResponseHeader_" }
+      }
+
+      #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+      pub struct ResponseStatus {
+          pub code: i32,
+      }
+
+      impl crate::DdsType for ResponseStatus {
+          fn dds_name() -> &'static str { "unitree_api::msg::dds_::ResponseStatus_" }
+      }
+
+    }
+  }
+}
 pub mod unitree_go {
   pub mod msg {
     pub mod dds_ {

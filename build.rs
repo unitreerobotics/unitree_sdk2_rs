@@ -130,7 +130,7 @@ fn is_keyword(s: &str) -> bool {
 struct Package {
     name: String,    // e.g. unitree_hg
     cpp_ns: String,  // e.g. unitree_hg::msg::dds_
-    idl_dir: String, // e.g. hg (SDK include directory)
+    idl_dir: String, // e.g. idl/hg (SDK include path relative to unitree/)
     tag: String,     // e.g. hg (symbol prefix, avoids name clashes across packages)
     types: BTreeMap<String, Vec<String>>,
 }
@@ -140,16 +140,20 @@ fn pkg_tag(package: &str) -> String {
         "unitree_hg" => "hg".into(),
         "unitree_go" => "go".into(),
         "std_msgs" => "std".into(),
+        "unitree_api" => "api".into(),
         _ => package.to_string(),
     }
 }
 
-/// msg package name → SDK IDL directory (unitree_hg→hg, unitree_go→go2, std_msgs→ros2)
+/// msg package name → SDK header include path relative to `unitree/`
+/// (unitree_hg→idl/hg, unitree_go→idl/go2, std_msgs→idl/ros2,
+///  unitree_api→robot/internal/internal_idl_decl)
 fn idl_dir(package: &str) -> Option<&str> {
     match package {
-        "unitree_hg" => Some("hg"),
-        "unitree_go" => Some("go2"),
-        "std_msgs" => Some("ros2"),
+        "unitree_hg" => Some("idl/hg"),
+        "unitree_go" => Some("idl/go2"),
+        "std_msgs" => Some("idl/ros2"),
+        "unitree_api" => Some("robot/internal/internal_idl_decl"),
         _ => None, // packages without an SDK IDL directory are skipped
     }
 }
@@ -309,7 +313,7 @@ fn gen_topics_h(pkgs: &[Package]) -> String {
     for pkg in pkgs {
         for name in pkg.types.keys() {
             out.push_str(&format!(
-                "#include <unitree/idl/{idl}/{name}_.hpp>\n",
+                "#include <unitree/{idl}/{name}_.hpp>\n",
                 idl = pkg.idl_dir
             ));
         }

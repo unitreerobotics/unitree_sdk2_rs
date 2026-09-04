@@ -2,6 +2,14 @@
 #pragma once
 
 #include <unitree/idl/ros2/String_.hpp>
+#include <unitree/robot/internal/internal_idl_decl/Request_.hpp>
+#include <unitree/robot/internal/internal_idl_decl/RequestHeader_.hpp>
+#include <unitree/robot/internal/internal_idl_decl/RequestIdentity_.hpp>
+#include <unitree/robot/internal/internal_idl_decl/RequestLease_.hpp>
+#include <unitree/robot/internal/internal_idl_decl/RequestPolicy_.hpp>
+#include <unitree/robot/internal/internal_idl_decl/Response_.hpp>
+#include <unitree/robot/internal/internal_idl_decl/ResponseHeader_.hpp>
+#include <unitree/robot/internal/internal_idl_decl/ResponseStatus_.hpp>
 #include <unitree/idl/go2/AudioData_.hpp>
 #include <unitree/idl/go2/BmsCmd_.hpp>
 #include <unitree/idl/go2/BmsState_.hpp>
@@ -43,6 +51,38 @@ namespace unitree {
 using stdStringPublisher = Publisher<std_msgs::msg::dds_::String_>;
 std::unique_ptr<stdStringPublisher> new_std_string_publisher(rust::Str topic);
 void publish_std_string_bytes(const stdStringPublisher& pub, rust::Vec<uint8_t> bytes);
+
+using apiRequestPublisher = Publisher<unitree_api::msg::dds_::Request_>;
+std::unique_ptr<apiRequestPublisher> new_api_request_publisher(rust::Str topic);
+void publish_api_request_bytes(const apiRequestPublisher& pub, rust::Vec<uint8_t> bytes);
+
+using apiRequestHeaderPublisher = Publisher<unitree_api::msg::dds_::RequestHeader_>;
+std::unique_ptr<apiRequestHeaderPublisher> new_api_request_header_publisher(rust::Str topic);
+void publish_api_request_header_bytes(const apiRequestHeaderPublisher& pub, rust::Vec<uint8_t> bytes);
+
+using apiRequestIdentityPublisher = Publisher<unitree_api::msg::dds_::RequestIdentity_>;
+std::unique_ptr<apiRequestIdentityPublisher> new_api_request_identity_publisher(rust::Str topic);
+void publish_api_request_identity_bytes(const apiRequestIdentityPublisher& pub, rust::Vec<uint8_t> bytes);
+
+using apiRequestLeasePublisher = Publisher<unitree_api::msg::dds_::RequestLease_>;
+std::unique_ptr<apiRequestLeasePublisher> new_api_request_lease_publisher(rust::Str topic);
+void publish_api_request_lease_bytes(const apiRequestLeasePublisher& pub, rust::Vec<uint8_t> bytes);
+
+using apiRequestPolicyPublisher = Publisher<unitree_api::msg::dds_::RequestPolicy_>;
+std::unique_ptr<apiRequestPolicyPublisher> new_api_request_policy_publisher(rust::Str topic);
+void publish_api_request_policy_bytes(const apiRequestPolicyPublisher& pub, rust::Vec<uint8_t> bytes);
+
+using apiResponsePublisher = Publisher<unitree_api::msg::dds_::Response_>;
+std::unique_ptr<apiResponsePublisher> new_api_response_publisher(rust::Str topic);
+void publish_api_response_bytes(const apiResponsePublisher& pub, rust::Vec<uint8_t> bytes);
+
+using apiResponseHeaderPublisher = Publisher<unitree_api::msg::dds_::ResponseHeader_>;
+std::unique_ptr<apiResponseHeaderPublisher> new_api_response_header_publisher(rust::Str topic);
+void publish_api_response_header_bytes(const apiResponseHeaderPublisher& pub, rust::Vec<uint8_t> bytes);
+
+using apiResponseStatusPublisher = Publisher<unitree_api::msg::dds_::ResponseStatus_>;
+std::unique_ptr<apiResponseStatusPublisher> new_api_response_status_publisher(rust::Str topic);
+void publish_api_response_status_bytes(const apiResponseStatusPublisher& pub, rust::Vec<uint8_t> bytes);
 
 using goAudioDataPublisher = Publisher<unitree_go::msg::dds_::AudioData_>;
 std::unique_ptr<goAudioDataPublisher> new_go_audio_data_publisher(rust::Str topic);

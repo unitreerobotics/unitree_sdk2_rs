@@ -1,6 +1,14 @@
 // ⚡ Auto-generated (msg → Rust topic_publish). Regenerate by editing msgs/ or build.rs.
 
 topic_publish!(crate::gen_types::std_msgs::msg::dds_::String, stdStringPublisher, new_std_string_publisher, publish_std_string_bytes);
+topic_publish!(crate::gen_types::unitree_api::msg::dds_::Request, apiRequestPublisher, new_api_request_publisher, publish_api_request_bytes);
+topic_publish!(crate::gen_types::unitree_api::msg::dds_::RequestHeader, apiRequestHeaderPublisher, new_api_request_header_publisher, publish_api_request_header_bytes);
+topic_publish!(crate::gen_types::unitree_api::msg::dds_::RequestIdentity, apiRequestIdentityPublisher, new_api_request_identity_publisher, publish_api_request_identity_bytes);
+topic_publish!(crate::gen_types::unitree_api::msg::dds_::RequestLease, apiRequestLeasePublisher, new_api_request_lease_publisher, publish_api_request_lease_bytes);
+topic_publish!(crate::gen_types::unitree_api::msg::dds_::RequestPolicy, apiRequestPolicyPublisher, new_api_request_policy_publisher, publish_api_request_policy_bytes);
+topic_publish!(crate::gen_types::unitree_api::msg::dds_::Response, apiResponsePublisher, new_api_response_publisher, publish_api_response_bytes);
+topic_publish!(crate::gen_types::unitree_api::msg::dds_::ResponseHeader, apiResponseHeaderPublisher, new_api_response_header_publisher, publish_api_response_header_bytes);
+topic_publish!(crate::gen_types::unitree_api::msg::dds_::ResponseStatus, apiResponseStatusPublisher, new_api_response_status_publisher, publish_api_response_status_bytes);
 topic_publish!(crate::gen_types::unitree_go::msg::dds_::AudioData, goAudioDataPublisher, new_go_audio_data_publisher, publish_go_audio_data_bytes);
 topic_publish!(crate::gen_types::unitree_go::msg::dds_::BmsCmd, goBmsCmdPublisher, new_go_bms_cmd_publisher, publish_go_bms_cmd_bytes);
 topic_publish!(crate::gen_types::unitree_go::msg::dds_::BmsState, goBmsStatePublisher, new_go_bms_state_publisher, publish_go_bms_state_bytes);
