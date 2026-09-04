@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.1] - 2026-09-04
+
+### Features
+
+- *(sdk2)* Generate msg types for the unitree_api package
+
+### Documentation
+
+- *(readme)* Add installation instructions
+- *(readme)* Describe the unitree_sdk2 C++ wrapper
+- *(readme)* Update repo links to unitreerobotics org
+
+### Testing
+
+- *(rpc)* Verify RPC rides on DDS request/response channels
+
+### Miscellaneous Tasks
+
+- *(release)* Auto-create GitHub release from changelog on tag push
+- *(release)* Fix double v-prefix in release title
+- *(changelog)* Update repo placeholder to unitreerobotics org
+- *(license)* Switch license to BSD-3-Clause
 ## [0.2.0] - 2026-09-01
 
 ### Features

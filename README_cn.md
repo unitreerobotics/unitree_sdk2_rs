@@ -23,7 +23,7 @@ C++ SDK，复用相同的 DDS 消息类型与 CDR 线格式，可与机器人上
 
 ```toml
 [dependencies]
-unitree_sdk2_rs = { version = "0.2.0" }
+unitree_sdk2_rs = { version = "0.2.1" }
 ```
 
 该 crate 无 feature 开关，默认即启用全部功能。
