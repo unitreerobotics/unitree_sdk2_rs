@@ -5,16 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Features
+
+- *(examples)* Sync go2 SDK examples to Rust — go2_sport_client / robot_state / vui / video / trajectory_follow / low_level / stand_example mirroring tmp_sdk2/example/go2/*, using the robot_api clients and the pub/sub API; binary-channel and SDK-missing-API cases documented.
 ## [0.3.0] - 2026-09-04
 
 ### Features
 
-- *(api)* Robot RPC clients for all 8 models — Hand-verified per-model clients under gen/robot_api/ (a2/as2/b2/g1/go2/h1/h2/r1), mirroring the C++ service clients: new() registers all api ids and each method marshals params to JSON and calls the RPC endpoint (move_to, trajectory_follow, set_phase, set_punch_api, ...). Exposed as robot_api::<model>::<service>.
-## [0.2.1] - 2026-09-04
-
-### Features
-
 - *(sdk2)* Generate msg types for the unitree_api package — Add unitree_api (Request/Response family) to codegen: SDK headers live under unitree/robot/internal/internal_idl_decl.
+- *(api)* Robot RPC clients for all 8 models — Hand-verified per-model clients under gen/robot_api/ (a2/as2/b2/g1/go2/h1/h2/r1), mirroring the C++ service clients: new() registers all api ids and each method marshals params to JSON and calls the RPC endpoint (move_to, trajectory_follow, set_phase, set_punch_api, ...). Exposed as robot_api::<model>::<service>.
 
 ### Documentation
 
@@ -32,6 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - *(release)* Fix double v-prefix in release title
 - *(changelog)* Update repo placeholder to unitreerobotics org
 - *(license)* Switch license to BSD-3-Clause
+- *(release)* Bump version to 0.3.0
 ## [0.2.0] - 2026-09-01
 
 ### Features

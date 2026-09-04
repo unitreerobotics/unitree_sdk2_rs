@@ -52,3 +52,134 @@ serde-big-array = "0.5"
 
 [build-dependencies]
 cxx-build = "1.0.199"
+
+# SDK example ports (mirroring tmp_sdk2/example/<model>/<category>/...)
+[[example]]
+name = "a2_audio_client_example"
+path = "examples/a2/audio/a2_audio_client_example.rs"
+[[example]]
+name = "a2_sport_client"
+path = "examples/a2/sport/a2_sport_client.rs"
+[[example]]
+name = "a2_sport_state"
+path = "examples/a2/sport/a2_sport_state.rs"
+[[example]]
+name = "as2_sport_client"
+path = "examples/as2/sport/as2_sport_client.rs"
+[[example]]
+name = "as2_sport_state"
+path = "examples/as2/sport/as2_sport_state.rs"
+[[example]]
+name = "b2_sport_client"
+path = "examples/b2/b2_sport_client.rs"
+[[example]]
+name = "b2_stand_example"
+path = "examples/b2/b2_stand_example.rs"
+[[example]]
+name = "b2w_sport_client"
+path = "examples/b2w/b2w_sport_client.rs"
+[[example]]
+name = "b2w_stand_example"
+path = "examples/b2w/b2w_stand_example.rs"
+[[example]]
+name = "g1_agv_client_example"
+path = "examples/g1/g1d/g1_agv_client_example.rs"
+[[example]]
+name = "g1d_arm_example"
+path = "examples/g1/g1d/g1d_arm_example.rs"
+[[example]]
+name = "g1d_height_control"
+path = "examples/g1/g1d/g1d_height_control.rs"
+[[example]]
+name = "g1_arm_action_example"
+path = "examples/g1/high_level/g1_arm_action_example.rs"
+[[example]]
+name = "g1_audio_client_example"
+path = "examples/g1/high_level/g1_audio_client_example.rs"
+[[example]]
+name = "g1_loco_client_example"
+path = "examples/g1/high_level/g1_loco_client_example.rs"
+[[example]]
+name = "g1_ankle_swing_example"
+path = "examples/g1/low_level/g1_ankle_swing_example.rs"
+[[example]]
+name = "g1_dual_arm_example"
+path = "examples/g1/low_level/g1_dual_arm_example.rs"
+[[example]]
+name = "go2_low_level"
+path = "examples/go2/go2_low_level.rs"
+[[example]]
+name = "go2_robot_state_client"
+path = "examples/go2/go2_robot_state_client.rs"
+[[example]]
+name = "go2_sport_client"
+path = "examples/go2/go2_sport_client.rs"
+[[example]]
+name = "go2_stand_example"
+path = "examples/go2/go2_stand_example.rs"
+[[example]]
+name = "go2_trajectory_follow"
+path = "examples/go2/go2_trajectory_follow.rs"
+[[example]]
+name = "go2_video_client"
+path = "examples/go2/go2_video_client.rs"
+[[example]]
+name = "go2_vui_client"
+path = "examples/go2/go2_vui_client.rs"
+[[example]]
+name = "go2w_sport_client"
+path = "examples/go2w/go2w_sport_client.rs"
+[[example]]
+name = "go2w_stand_example"
+path = "examples/go2w/go2w_stand_example.rs"
+[[example]]
+name = "h1_arm_sdk_dds_example"
+path = "examples/h1/high_level/h1_arm_sdk_dds_example.rs"
+[[example]]
+name = "h1_loco_client_example"
+path = "examples/h1/high_level/h1_loco_client_example.rs"
+[[example]]
+name = "h1_27dof_example"
+path = "examples/h1/low_level/h1_27dof_example.rs"
+[[example]]
+name = "h1_2_ankle_track"
+path = "examples/h1/low_level/h1_2_ankle_track.rs"
+[[example]]
+name = "h2_arm_action_example"
+path = "examples/h2/high_level/h2_arm_action_example.rs"
+[[example]]
+name = "h2_arm_sdk_dds_example"
+path = "examples/h2/high_level/h2_arm_sdk_dds_example.rs"
+[[example]]
+name = "h2_loco_client_example"
+path = "examples/h2/high_level/h2_loco_client_example.rs"
+[[example]]
+name = "h2_ankle_swing_example"
+path = "examples/h2/low_level/h2_ankle_swing_example.rs"
+[[example]]
+name = "h2_dual_arm_example"
+path = "examples/h2/low_level/h2_dual_arm_example.rs"
+[[example]]
+name = "helloworld_publisher"
+path = "examples/helloworld/publisher.rs"
+[[example]]
+name = "helloworld_subscriber"
+path = "examples/helloworld/subscriber.rs"
+[[example]]
+name = "r1_audio_client_example"
+path = "examples/r1/audio/r1_audio_client_example.rs"
+[[example]]
+name = "r1_arm_sdk_dds_example"
+path = "examples/r1/high_level/r1_arm_sdk_dds_example.rs"
+[[example]]
+name = "r1_loco_client_example"
+path = "examples/r1/high_level/r1_loco_client_example.rs"
+[[example]]
+name = "r1A_wrist_swing_example"
+path = "examples/r1/low_level/r1A_wrist_swing_example.rs"
+[[example]]
+name = "r1_ankle_swing_example"
+path = "examples/r1/low_level/r1_ankle_swing_example.rs"
+[[example]]
+name = "wireless_controller"
+path = "examples/wireless_controller/main.rs"
