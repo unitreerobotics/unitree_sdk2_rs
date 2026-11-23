@@ -27,7 +27,17 @@ public:
           case '\n': out += "\\n"; break;
           case '\r': out += "\\r"; break;
           case '\t': out += "\\t"; break;
-          default: out += c;
+          default:
+              // JSON strings must escape control bytes below 0x20.
+              const auto byte = static_cast<unsigned char>(c);
+              if (byte < 0x20) {
+                  constexpr char hex[] = "0123456789abcdef";
+                  out += "\\u00";
+                  out += hex[byte >> 4];
+                  out += hex[byte & 0x0f];
+              } else {
+                  out += c;
+              }
           }
       }
       return out;
