@@ -14,6 +14,7 @@ use unitree_sdk2_rs::{init_dds, subscribe};
 
 const SERVICE: &str = "rpc_req_res_test";
 const API_ID: i64 = 1001;
+const EXPECTED_RESPONSE: &str = "echo: hello\u{000C}\u{001F}";
 
 fn request_topic() -> String {
     format!("rt/api/{SERVICE}/request")
@@ -32,7 +33,7 @@ async fn main() {
 
     // Start the RPC server in this process.
     let server = Arc::new(RpcServer::new(SERVICE).expect("failed to create RpcServer"));
-    server.register_handler(API_ID as i32, |req| format!(r#"{{"echo":"{}"}}"#, req));
+    server.register_handler(API_ID as i32, |req| format!("echo: {req}\u{000C}\u{001F}"));
     let server_task = tokio::spawn({
         let srv = server.clone();
         async move { srv.start().await }
@@ -47,11 +48,7 @@ async fn main() {
         .await
         .expect("RPC call failed");
     assert_eq!(resp.code, 0, "unexpected RPC return code: {}", resp.code);
-    assert!(
-        resp.data.contains("hello"),
-        "unexpected RPC response data: {}",
-        resp.data
-    );
+    assert_eq!(resp.data, EXPECTED_RESPONSE);
     println!("RPC call OK: code={} data={}", resp.code, resp.data);
 
     // The request published by the client must be visible on the request channel.
@@ -80,11 +77,7 @@ async fn main() {
         "response code mismatch: {}",
         res.header.status.code
     );
-    assert!(
-        res.data.contains("hello"),
-        "unexpected response payload: {}",
-        res.data
-    );
+    assert_eq!(res.data, EXPECTED_RESPONSE);
     println!(
         "response channel OK: code={} data={}",
         res.header.status.code, res.data
