@@ -102,15 +102,22 @@ pub fn subscribe<D: DdsType + DeserializeOwned + Send + Sync + 'static>(
     topic: &str,
 ) -> (Subscriber, watch::Receiver<Option<D>>) {
     let (tx, rx) = watch::channel(None);
+    let type_name = D::dds_name();
     let id = ffi::subscribe_any(
         topic,
-        D::dds_name(),
-        Box::new(ByteHandler::new(move |bytes: Vec<u8>| {
-            if let Ok(data) = cdr::deserialize::<D>(&bytes[..]) {
-                let _ = tx.send_replace(Some(data));
-            }
-        })),
+        type_name,
+        Box::new(ByteHandler::new(
+            move |bytes: Vec<u8>| match cdr::deserialize::<D>(&bytes) {
+                Ok(data) => {
+                    let _ = tx.send_replace(Some(data));
+                }
+                Err(err) => log::debug!("Failed to decode DDS sample of type {type_name}: {err}"),
+            },
+        )),
     );
+    if id <= 0 {
+        log::error!("Failed to subscribe to DDS topic {topic:?} with type {type_name}: bridge returned {id}");
+    }
     (Subscriber { id }, rx)
 }
 
@@ -149,8 +156,12 @@ where
     where
         T: Serialize,
     {
-        if let Ok(bytes) = cdr::serialize::<_, _, cdr::CdrLe>(d, cdr::Infinite) {
-            T::publish_ffi(&self.inner, bytes);
+        match cdr::serialize::<_, _, cdr::CdrLe>(d, cdr::Infinite) {
+            Ok(bytes) => T::publish_ffi(&self.inner, bytes),
+            Err(err) => log::warn!(
+                "Failed to encode DDS sample of type {}: {err}",
+                std::any::type_name::<T>()
+            ),
         }
     }
 }
